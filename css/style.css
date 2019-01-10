@@ -40,6 +40,10 @@ body {
     left: 40px;
 }
 
+.logo-box:hover .logo {
+    animation: dariKanan 1s ease-out;
+}
+
 .logo {
     height: 35px;
 }
@@ -48,12 +52,16 @@ body {
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
     color: white;
     text-transform: uppercase;
+
+    /* backface-visibility: hidden; */
+    margin-bottom: 60px;
 }
 
 .main {
@@ -78,7 +86,7 @@ body {
         opacity: 0;
     }
 
-    50% {
+    80% {
         transform: translateX(10px);
     }
 
@@ -94,7 +102,7 @@ body {
         opacity: 0;
     }
 
-    50% {
+    80% {
         transform: translateX(-10px);
     }
 
@@ -102,4 +110,68 @@ body {
         transform: translateX(0);
         opacity: 1;
     }
+}
+
+@keyframes dariBawah {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.btn:visited,
+.btn:link {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+    animation: dariBawah .5s ease-out .75s;
+    animation-fill-mode: backwards;
+
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    /* background-color: red; */
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
 }
